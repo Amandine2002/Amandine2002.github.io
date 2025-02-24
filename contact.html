@@ -25,29 +25,21 @@
                 </ul>
             </nav>
         </header>
+        
         <div class="contact-section">
-            <section class="contact-form">
-                <h2>Contact Form</h2>
-                <form id="contactForm" onsubmit="return submitForm(event)">
-                    <label for="firstname">First Name:</label>
-                    <input type="text" id="firstname" name="firstname" required maxlength="30"><br>
-                
-                    <label for="lastname">Last Name:</label>
-                    <input type="text" id="lastname" name="lastname" required maxlength="30"><br>
-                
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required><br>
-                
-                    <label for="message">Message:</label>
-                    <textarea id="message" name="message" required oninput="adjustHeight(); updateWordCount();"></textarea>
-                    
-                    <div id="wordCount" class="word-count">0/250 words</div>
-                    
-                    <div class="button-container">
-                        <input type="submit" value="Submit">
-                        <input type="reset" value="Reset" class="reset-button">
-                    </div>
-                </form>                
+            <section class="contact-info">
+                <div class="account-box">
+                    <h2>Account</h2>
+                    <p><strong>Phone:</strong> +33 1 23 45 67 89</p>
+                    <p><strong>Email:</strong> arius@siue.edu</p>
+                </div>
+                <div class="social-media-box">
+                    <h2>Social Media</h2>
+                    <ul>
+                        <li class="linkedin"><a href="https://www.linkedin.com/in/amandine-rius/" target="_blank">LinkedIn</a></li><br>
+                        <li class="github"><a href="https://github.com/Amandine2002" target="_blank">GitHub</a></li>
+                    </ul>
+                </div>
             </section>
         </div>
 
@@ -55,60 +47,5 @@
             <p>&copy; 2024 Amandine RIUS. All rights reserved.</p>
         </footer>
     </div>
-    
-    <script>
-        function adjustHeight() {
-            const messageField = document.getElementById("message");
-            messageField.style.height = 'auto';
-            messageField.style.height = messageField.scrollHeight + 'px';
-        }
-
-        function updateWordCount() {
-            const message = document.getElementById("message").value;
-            const wordCount = document.getElementById("wordCount");
-            const words = message.trim().split(/\s+/).filter(function(word) {
-                return word.length > 0;
-            });
-            wordCount.textContent = words.length + '/250 words';
-        }
-
-        function submitForm(event) {
-            event.preventDefault();
-
-            const firstname = document.getElementById("firstname").value.trim();
-            const lastname = document.getElementById("lastname").value.trim();
-            const email = document.getElementById("email").value.trim();
-            const message = document.getElementById("message").value.trim();
-
-            if (!email.includes('@')) {
-                alert("Please enter a valid email address containing '@'.");
-                return false;
-            }
-
-            const formData = new FormData();
-            formData.append("firstname", firstname);
-            formData.append("lastname", lastname);
-            formData.append("email", email);
-            formData.append("message", message);
-
-            fetch("send_mail.php", {
-                method: "POST",
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                alert(data.message);
-                if (data.status === "success") {
-                    document.getElementById("contactForm").reset();
-                }
-            })
-            .catch(error => {
-                alert("An error occurred. Please try again later.");
-                console.error("Error:", error);
-            });
-
-            return false;
-        }
-    </script>
 </body>
 </html>
