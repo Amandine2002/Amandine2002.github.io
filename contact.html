@@ -28,26 +28,26 @@
         <div class="contact-section">
             <section class="contact-form">
                 <h2>Contact Form</h2>
-                <form id="contactForm" onsubmit="return submitForm()">
+                <form id="contactForm" onsubmit="return submitForm(event)">
                     <label for="firstname">First Name:</label>
                     <input type="text" id="firstname" name="firstname" required maxlength="30"><br>
-
+                
                     <label for="lastname">Last Name:</label>
                     <input type="text" id="lastname" name="lastname" required maxlength="30"><br>
-
+                
                     <label for="email">Email:</label>
                     <input type="email" id="email" name="email" required><br>
-
+                
                     <label for="message">Message:</label>
-                    <div class="message-container">
-                        <textarea id="message" name="message" required oninput="adjustHeight(); updateWordCount();"></textarea>
-                        <div id="wordCount" class="word-count">0/250 words</div>
-                    </div>
+                    <textarea id="message" name="message" required oninput="adjustHeight(); updateWordCount();"></textarea>
+                    
+                    <div id="wordCount" class="word-count">0/250 words</div>
+                    
                     <div class="button-container">
                         <input type="submit" value="Submit">
                         <input type="reset" value="Reset" class="reset-button">
                     </div>
-                </form>
+                </form>                
             </section>
         </div>
 
@@ -72,29 +72,39 @@
             wordCount.textContent = words.length + '/250 words';
         }
 
-        function submitForm() {
-            const firstname = document.getElementById("firstname").value;
-            const lastname = document.getElementById("lastname").value;
-            const email = document.getElementById("email").value;
-            const message = document.getElementById("message").value;
-            const date = new Date().toLocaleString();
+        function submitForm(event) {
+            event.preventDefault();
+
+            const firstname = document.getElementById("firstname").value.trim();
+            const lastname = document.getElementById("lastname").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const message = document.getElementById("message").value.trim();
 
             if (!email.includes('@')) {
                 alert("Please enter a valid email address containing '@'.");
                 return false;
             }
 
-            const formData = {
-                firstname: firstname,
-                lastname: lastname,
-                email: email,
-                message: message,
-                date: date
-            };
+            const formData = new FormData();
+            formData.append("firstname", firstname);
+            formData.append("lastname", lastname);
+            formData.append("email", email);
+            formData.append("message", message);
 
-            console.log(formData);
-            alert("Form submitted! Check the console for details.");
-            document.getElementById("contactForm").reset();
+            fetch("send_mail.php", {
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.message);
+                document.getElementById("contactForm").reset();
+            })
+            .catch(error => {
+                alert("An error occurred. Please try again later.");
+                console.error("Error:", error);
+            });
+
             return false;
         }
     </script>
