@@ -1,0 +1,284 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    background-color: #333;
+    text-align: center;
+    color: #fff;
+    padding: 10px 0;
+    position: relative;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    position: relative;
+}
+
+nav ul li {
+    display: inline-block;
+    position: relative;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    position: relative;
+    padding: 10px;
+}
+
+nav ul li a:hover {
+    background-color: white;
+    color: #333;
+    transition: background-color 0.3s ease;
+}
+
+nav ul ul {
+    display: none;
+    position: absolute;
+}
+
+nav ul li:hover > ul {
+    display: block;
+}
+
+nav ul li ul {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    background-color: #333;
+    z-index: 1000;
+    padding: 0;
+    list-style-type: none;
+}
+
+nav ul li ul li {
+    display: block;
+    width: 100%;
+}
+
+nav ul li ul li a {
+    display: block;
+    padding: 10px;
+    color: #fff;
+}
+
+nav ul li ul li a:hover {
+    background-color: #fff;
+    color: #333;
+}
+
+.print-button {
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 10px;
+}
+
+.print-button:hover {
+    background-color: #555;
+}
+
+.summary {
+    text-align: center;
+    background-color: #fafafa;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+}
+
+.summary p {
+    font-size: 1em;
+    margin: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.content-wrapper {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    gap: 20px;
+}
+
+.main-content {
+    width: 70%;
+}
+
+.main-content h2 {
+    display: inline-block;
+    border-bottom: 2px solid #333;
+    padding-bottom: 5px;
+    width: auto;
+    font-size: 1.5em;
+}
+
+.skills-list {
+    padding-left: 55px;
+}
+
+.skills-list li {
+    padding-left: 3px;
+}
+
+.experience-block {
+    padding: 15px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    margin-bottom: 20px;
+}
+
+.experience-block p {
+    margin-bottom: 10px;
+}
+
+.experience-block ul {
+    list-style: disc;
+}
+
+.sidebar {
+    width: 300px;
+    padding-left: 20px;
+    padding-top: 70px;
+    background-color: #f9f9f9;
+    border-left: 2px solid #ccc;
+    border-right: 2px solid #ccc;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.sidebar h2 {
+    margin-bottom: 10px;
+    border-bottom: 2px solid #333;
+    padding-bottom: 5px;
+}
+
+.sidebar-title {
+    display: inline-block;
+    border-bottom: 2px solid #333;
+    padding-bottom: 5px;
+    width: auto;
+}
+
+.software-title {
+    font-size: 1.2em;
+}
+
+.programming-languages-title {
+    font-size: 1.2em;
+}
+
+.languages-title {
+    font-size: 1.2em;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 5px;
+    position: relative;
+    padding-left: 15px;
+}
+
+.sidebar ul li::before {
+    content: "-";
+    position: absolute;
+    left: 0;
+    color: #333;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #f4f4f4;
+    border-top: 2px solid #ccc;
+}
+
+@media print {
+    nav, .print-button, footer {
+        display: none;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    .content-wrapper {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+        padding: 0;
+        margin: 0;
+    }
+
+    .main-content {
+        width: 100%;
+        order: 1;
+    }
+
+    .summary, .experience-block, .container {
+        border: none;
+        box-shadow: none;
+        background-color: white;
+        margin-bottom: 0px;
+        padding: 0px;
+    }
+    .sidebar {
+        border: none;
+        box-shadow: none;
+        background-color: white;
+        margin-bottom: 0px;
+        order: 2;
+        float: right;
+    }
+
+    h1, h2, p {
+        margin-top: 0;
+        padding: 0;
+        line-height: 1.2;
+    }
+
+    body {
+        font-family: 'Arial', sans-serif;
+        font-size: 10pt;
+        line-height: 1.4;
+    }
+
+    body {
+        page-break-inside: avoid;
+        break-inside: avoid;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects</title>
+    <link rel="stylesheet" href="../styles/style_projects.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Space SHMUP</h1>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../resume.html">Resume</a></li>
+                    <li>
+                        <a>Projects</a>
+                        <ul>
+                            <li><a href="project1.html">Mission Demolition</a></li>
+                            <li><a href="project2.html">Space SHMUP</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+        <section class="project-description">
+            <h2>🚀 Project 2: Space SHMUP 🌌</h2>
+            <img src="../images/Space_SHMUP.png" alt="Space SHMUP" class="project-image">
+            
+            <h3>📜 Project Summary</h3>
+            <p>In this exciting game, you play as a spaceship defending the galaxy against enemy waves.</p>
+
+            <h3>🚀 Start</h3>
+            <p>To start playing, follow these steps:</p>
+            <ol>
+                <li><strong>Clone the Directory:</strong></li>
+                <pre><code>git clone git@github.com:Amandine2002/SpaceSHMUP.git</code></pre>
+                <li><strong>Open the Project:</strong> Start Unity and open the cloned folder.</li>
+                <li><strong>Play the Game:</strong> Click "Play" in Unity to start your space adventure.</li>
+            </ol>
+
+            <h3>🛠️ Features</h3>
+            <ul>
+                <li><strong>5 Enemy Waves</strong>: Face waves of five enemy ships at once.</li>
+                <li><strong>Damage System</strong>: Players can take damage from enemies, adding a survival element.</li>
+                <li><strong>Shooting Mechanics</strong>: Your ship can shoot lasers to take down enemies.</li>
+                <li><strong>Power-Up System</strong>: Enemies drop power-ups that enhance firepower or shield.</li>
+                <li><strong>Scrolling Starfield Background</strong>: A dynamic, scrolling starfield simulates movement.</li>
+            </ul>
+
+            <h3>📚 Technologies used</h3>
+            <ul>
+                <li><strong>Unity</strong>: Game engine for scene development and management.</li>
+                <li><strong>C#</strong>: Programming language for game scripts.</li>
+            </ul>
+
+            <h3>📈 Future Improvements</h3>
+            <ul>
+                <li>Add more diverse enemy types with unique attack patterns.</li>
+                <li>Introduce boss battles at the end of each level.</li>
+                <li>Expand the starfield to include asteroid fields and other environments.</li>
+                <li>Add sound effects and music for an enhanced experience.</li>
+            </ul>
+            <a href="project1.html" class="previous-btn">Previous Project: Space SHMUP</a>
+        </section>
+        <footer>
+            <p>&copy; 2024 Amandine RIUS. All rights reserved.</p>
+        </footer>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const links = document.querySelectorAll('nav ul li ul li a');
+            links.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    window.location.href = this.href;
+                    if (window.location.href === this.href) {
+                        window.location.reload();
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

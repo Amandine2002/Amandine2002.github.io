@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects</title>
+    <link rel="stylesheet" href="../styles/style_projects.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Mission Demolition</h1>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../resume.html">Resume</a></li>
+                    <li>
+                        <a>Projects</a>
+                        <ul>
+                            <li><a href="project1.html">Mission Demolition</a></li>
+                            <li><a href="project2.html">Space SHMUP</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+        <section class="project-description">
+            <h2>🎯 Project 2: Mission Demolition 🏰</h2>
+            <img src="../images/Mission_Demolition.png" alt="Mission Demolition" class="project-image">
+            <h3>📜 Project Summary</h3>
+            <p>In this exciting game, you take on the role of a slingshot-wielding character tasked with demolishing wooden castles.</p>
+
+            <h3>🚀 Start</h3>
+            <p>To start playing, follow these simple steps:</p>
+            <ol>
+                <li><strong>Clone the Directory:</strong></li>
+                <pre><code>git clone git@github.com:Amandine2002/MissionDemolition.git</code></pre>
+                <li><strong>Open the Project:</strong> Start Unity and open the cloned folder.</li>
+                <li><strong>Play the Game:</strong> Click "Play" in Unity to start playing.</li>
+            </ol>
+
+            <h3>🛠️ Features</h3>
+            <ul>
+                <li><strong>Engaging mechanics</strong>: Launch projectiles with a slingshot to knock down structures.</li>
+                <li><strong>Limited shots</strong>: Players must strategize as they have a maximum of 20 shots to complete the mission.</li>
+                <li><strong>Victory and Game Over screens</strong>: Players can celebrate their success or face defeat based on their performance.</li>
+                <li><strong>Dynamic levels</strong>: New castles will appear as a result of reaching the objective.</li>
+                <li><strong>Challenging levels</strong>: Each castle presents unique challenges and layouts.</li>
+            </ul>
+
+            <h3>📚 Technologies used</h3>
+            <ul>
+                <li><strong>Unity</strong>: Game engine for scene development and management.</li>
+                <li><strong>C#</strong>: Programming language for game scripts.</li>
+            </ul>
+
+            <h3>📈 Future Improvements</h3>
+            <ul>
+                <li>Introduce new types of projectiles with different properties.</li>
+                <li>Add sound effects and animations to enhance the gaming experience.</li>
+                <li>Create a leaderboard to track high scores and promote competition.</li>
+                <li>Personalize your slingshot with different models, colors, and textures.</li>
+            </ul>            <a href="project2.html" class="next-btn">Next Project: Space SHMUP</a>
+        </section>
+        <footer>
+            <p>&copy; 2024 Amandine RIUS. All rights reserved.</p>
+        </footer>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const links = document.querySelectorAll('nav ul li ul li a');
+            links.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    window.location.href = this.href;
+                    if (window.location.href === this.href) {
+                        window.location.reload();
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

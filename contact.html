@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="stylesheet" href="styles/style_contact.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Contact Me</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="resume.html">Resume</a></li>
+                    <li>
+                        <a>Projects</a>
+                        <ul>
+                            <li><a href="projects/project1.html">Mission Demolition</a></li>
+                            <li><a href="projects/project2.html">Space SHMUP</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div class="contact-section">
+            <section class="contact-form">
+                <h2>Contact Form</h2>
+                <form id="contactForm" onsubmit="return submitForm()">
+                    <label for="firstname">First Name:</label>
+                    <input type="text" id="firstname" name="firstname" required maxlength="30"><br>
+
+                    <label for="lastname">Last Name:</label>
+                    <input type="text" id="lastname" name="lastname" required maxlength="30"><br>
+
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required><br>
+
+                    <label for="message">Message:</label>
+                    <div class="message-container">
+                        <textarea id="message" name="message" required oninput="adjustHeight(); updateWordCount();"></textarea>
+                        <div id="wordCount" class="word-count">0/250 words</div>
+                    </div>
+                    <div class="button-container">
+                        <input type="submit" value="Submit">
+                        <input type="reset" value="Reset" class="reset-button">
+                    </div>
+                </form>
+            </section>
+        </div>
+
+        <footer>
+            <p>&copy; 2024 Amandine RIUS. All rights reserved.</p>
+        </footer>
+    </div>
+    
+    <script>
+        function adjustHeight() {
+            const messageField = document.getElementById("message");
+            messageField.style.height = 'auto';
+            messageField.style.height = messageField.scrollHeight + 'px';
+        }
+
+        function updateWordCount() {
+            const message = document.getElementById("message").value;
+            const wordCount = document.getElementById("wordCount");
+            const words = message.trim().split(/\s+/).filter(function(word) {
+                return word.length > 0;
+            });
+            wordCount.textContent = words.length + '/250 words';
+        }
+
+        function submitForm() {
+            const firstname = document.getElementById("firstname").value;
+            const lastname = document.getElementById("lastname").value;
+            const email = document.getElementById("email").value;
+            const message = document.getElementById("message").value;
+            const date = new Date().toLocaleString();
+
+            if (!email.includes('@')) {
+                alert("Please enter a valid email address containing '@'.");
+                return false;
+            }
+
+            const formData = {
+                firstname: firstname,
+                lastname: lastname,
+                email: email,
+                message: message,
+                date: date
+            };
+
+            console.log(formData);
+            alert("Form submitted! Check the console for details.");
+            document.getElementById("contactForm").reset();
+            return false;
+        }
+    </script>
+</body>
+</html>
