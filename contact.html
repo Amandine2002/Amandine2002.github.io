@@ -98,7 +98,9 @@
             .then(response => response.json())
             .then(data => {
                 alert(data.message);
-                document.getElementById("contactForm").reset();
+                if (data.status === "success") {
+                    document.getElementById("contactForm").reset();
+                }
             })
             .catch(error => {
                 alert("An error occurred. Please try again later.");
