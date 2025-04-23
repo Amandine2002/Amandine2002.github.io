@@ -35,19 +35,38 @@
                 <p class="goals">Looking ahead, I am eager to apply my skills in a professional setting and work on innovative projects that can make a real impact. <br>My goal is to become a full-stack developer and contribute to cutting-edge solutions in the tech industry.</p>
                 <p class="interests">In my free time,  I enjoy developing video games, learning new technologies or reading books. <br>I also love attending hackathons and collaborating with fellow tech enthusiasts to build creative applications.</p>
             </section>
-        
-            <section class="contact-info">
-                <div class="account-box">
-                    <h2>Account</h2>
-                    <p><strong>Phone:</strong> +33 1 23 45 67 89</p>
-                    <p><strong>Email:</strong> arius@siue.edu</p>
-                </div>
-                <div class="social-media-box">
-                    <h2>Social Media</h2>
-                    <ul>
-                        <li class="linkedin"><a href="https://www.linkedin.com/in/amandine-rius/" target="_blank">LinkedIn</a></li><br>
-                        <li class="github"><a href="https://github.com/Amandine2002" target="_blank">GitHub</a></li>
-                    </ul>
+
+            <section class="carousel-fun-images">
+                <h2>Some Pictures</h2>
+                <div class="carousel">
+                    <button class="carousel-btn prev" onclick="changeImage(-1)">❮</button>
+                    
+                    <div class="carousel-image-wrapper" style="display: block;">
+                        <img src="images/Image1.jpg" alt="Image1">
+                        <div class="carousel-caption">Me at a hackathon!</div>
+                    </div>
+                    <div class="carousel-image-wrapper" style="display: none;">
+                        <img src="images/Image2.jpg" alt="Image2">
+                        <div class="carousel-caption">Learning new tech</div>
+                    </div>
+                    <div class="carousel-image-wrapper" style="display: none;">
+                        <img src="images/Image3.jpg" alt="Image3">
+                        <div class="carousel-caption">My game project demo</div>
+                    </div>
+                    <div class="carousel-image-wrapper" style="display: none;">
+                        <img src="images/Image4.jpg" alt="Image4">
+                        <div class="carousel-caption">Teamwork in action</div>
+                    </div>
+                    <div class="carousel-image-wrapper" style="display: none;">
+                        <img src="images/Image5.jpg" alt="Image5">
+                        <div class="carousel-caption">Working on my portfolio</div>
+                    </div>
+                    <div class="carousel-image-wrapper" style="display: none;">
+                        <img src="images/Image6.jpg" alt="Image6">
+                        <div class="carousel-caption">Building projects with passion</div>
+                    </div>
+                    
+                    <button class="carousel-btn next" onclick="changeImage(1)">❯</button>
                 </div>
             </section>
         </div>
@@ -71,5 +90,15 @@
             <p>&copy; 2024 Amandine RIUS. All rights reserved.</p>
         </footer>
     </div>
+    <script>
+        let currentImageIndex = 0;
+
+        function changeImage(direction) {
+            const wrappers = document.querySelectorAll(".carousel-image-wrapper");
+            wrappers[currentImageIndex].style.display = "none";
+            currentImageIndex = (currentImageIndex + direction + wrappers.length) % wrappers.length;
+            wrappers[currentImageIndex].style.display = "block";
+        }
+    </script>        
 </body>
 </html>
